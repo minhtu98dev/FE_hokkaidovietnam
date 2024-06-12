@@ -459,7 +459,7 @@ export default function Home() {
       {/* sản phẩm nổi bật */}
       <div className="flex flex-col items-center mt-8">
         <h1 className="text-xl md:text-3xl font-medium mb-4">
-          SẢN PHẨM NỔI BẬTTTTTTTTT
+          SẢN PHẨM NỔI BẬT
         </h1>
         <div className="container grid grid-cols-2 lg:grid-cols-4 gap-5">
           {!isLoadingProductList && RenderProductCards()}
