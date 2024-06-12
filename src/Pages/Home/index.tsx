@@ -249,7 +249,7 @@ export default function Home() {
             <img src={img4} alt="" className="mx-auto" />
           </div>
           <h3 className="text-center font-medium text-xl mb-1">
-            Trang Thiết Bị Hiện Đại
+            Trang Thiết Bị Hiện Đại Nhất
           </h3>
           <span className="block text-center text-gray-500 text-sm">
             Một nhà máy được bao quanh bởi không khí trong lành và cây xanh.
@@ -459,7 +459,7 @@ export default function Home() {
       {/* sản phẩm nổi bật */}
       <div className="flex flex-col items-center mt-8">
         <h1 className="text-xl md:text-3xl font-medium mb-4">
-          SẢN PHẨM NỔI BẬTttttttttttt
+          SẢN PHẨM NỔI BẬT
         </h1>
         <div className="container grid grid-cols-2 lg:grid-cols-4 gap-5">
           {!isLoadingProductList && RenderProductCards()}
