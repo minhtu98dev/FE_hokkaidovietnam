@@ -12,8 +12,8 @@ import { actions } from "@/Redux/actions/cart.action";
 // ! Components
 import { Input } from "@/Components/ui/input";
 import Selection from "@/Components/Selection";
-import { Label } from "@/Components/ui/label"
-import { RadioGroup, RadioGroupItem } from "@/Components/ui/radio-group"
+import { Label } from "@/Components/ui/label";
+import { RadioGroup, RadioGroupItem } from "@/Components/ui/radio-group";
 import { Textarea } from "@/Components/ui/textarea";
 import { Button } from "@/Components/ui/button";
 import { toast } from "react-toastify";
@@ -52,13 +52,13 @@ export interface UserPaymentFrm {
 export default function CheckoutPage() {
   const { getProvince, getDistrict, getWard }: any = useAddress();
   const [priceDiscount, setPriceDiscount] = useState(0);
-  const [voucher, setVoucher] = useState('')
+  const [voucher, setVoucher] = useState("");
   const cartState = useSelector(selectCart);
   const userState = useSelector(selectUser);
 
   const dispatch: any = useDispatch();
   const navigate = useNavigate();
-  const { removeItem } = useLocalStorage()
+  const { removeItem } = useLocalStorage();
   const { isLogin } = useAuth();
 
   const {
@@ -67,40 +67,44 @@ export default function CheckoutPage() {
     formState: { errors },
     watch,
     setValue,
-    reset
+    reset,
   } = useForm<any>({
     mode: "onChange",
     resolver: yupResolver(checkoutValidationSchema),
     defaultValues: {
       ...userState,
       ghi_chu: "",
-      hinh_thuc_thanh_toan_id: "2"
+      hinh_thuc_thanh_toan_id: "2",
     },
   });
 
   const watchDistrict = getDistrict(watch("tinh_thanh_id"));
   const watchWard = getWard(watch("quan_id"));
 
-  const { isLoading: isLoadingDiscount, data: dataDiscount, refetch }: any = useQuery({
-    queryKey: ['discount', voucher],
+  const {
+    isLoading: isLoadingDiscount,
+    data: dataDiscount,
+    refetch,
+  }: any = useQuery({
+    queryKey: ["discount", voucher],
     queryFn: () => {
       const controller = new AbortController();
 
       setTimeout(() => {
-        controller.abort()
+        controller.abort();
       }, 5000);
 
       return checkDiscount(voucher, controller.signal);
     },
     onError: () => {
-      setValue("ma_giam_gia", "")
-      setVoucher("")
-      setPriceDiscount(0)
-      toast.error("Mã giảm giá không tồn tại!")
+      setValue("ma_giam_gia", "");
+      setVoucher("");
+      setPriceDiscount(0);
+      toast.error("Mã giảm giá không tồn tại!");
     },
     keepPreviousData: true,
     retry: 0,
-    enabled: false
+    enabled: false,
   });
 
   useEffect(() => {
@@ -115,26 +119,26 @@ export default function CheckoutPage() {
         phuong_id: "",
         ghi_chu: "",
         hinh_thuc_thanh_toan_id: "2",
-        nguoi_dung_id: ''
+        nguoi_dung_id: "",
       };
 
-      payload.email = userState.email
-      payload.ho_ten = userState.ho_ten
-      payload.so_dien_thoai = userState.so_dien_thoai
-      payload.dia_chi = userState.dia_chi
-      payload.tinh_thanh_id = userState.tinh_thanh_id
-      payload.nguoi_dung_id = userState.nguoi_dung_id
-      payload.quan_id = userState.quan_id
-      payload.phuong_id = userState.phuong_id
+      payload.email = userState.email;
+      payload.ho_ten = userState.ho_ten;
+      payload.so_dien_thoai = userState.so_dien_thoai;
+      payload.dia_chi = userState.dia_chi;
+      payload.tinh_thanh_id = userState.tinh_thanh_id;
+      payload.nguoi_dung_id = userState.nguoi_dung_id;
+      payload.quan_id = userState.quan_id;
+      payload.phuong_id = userState.phuong_id;
 
-      reset(payload)
-    };
+      reset(payload);
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [userState])
+  }, [userState]);
 
   const { isLoading, mutateAsync }: any = useMutation({
     mutationFn: (body: OrderCreate) => {
-      return postOrder(body)
+      return postOrder(body);
     },
     onSuccess: () => {
       toast.success(`Bạn đã đặt hàng thành công`, {
@@ -142,8 +146,8 @@ export default function CheckoutPage() {
       });
 
       setTimeout(() => {
-        navigate('/products')
-      }, 1000)
+        navigate("/products");
+      }, 1000);
 
       // * Clear Current Cart
       // ! if user login call api clear cart
@@ -162,26 +166,25 @@ export default function CheckoutPage() {
 
   const totalProductPrice: any = useMemo(() => {
     return cartState.reduce((accumulator: number, product: Product | any) => {
-      return accumulator + (product.so_luong * product.gia_ban);
+      return accumulator + product.so_luong * product.gia_ban;
     }, 0);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cartState]);
 
-  const totalPrice: any = totalProductPrice + SHIPPING_PRICE - priceDiscount
+  const totalPrice: any = totalProductPrice + SHIPPING_PRICE - priceDiscount;
 
   useEffect(() => {
     if (!isLoadingDiscount && dataDiscount) {
       const percentage = dataDiscount?.data?.content.cu_the;
       const priceCount = (totalProductPrice * percentage) / 100;
 
-      setPriceDiscount(priceCount)
-      setValue("ma_giam_gia", voucher)
-      setVoucher('');
+      setPriceDiscount(priceCount);
+      setValue("ma_giam_gia", voucher);
+      setVoucher("");
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [dataDiscount])
-
+  }, [dataDiscount]);
 
   const renderData = (): JSX.Element[] => {
     return cartState.map((item: Product | any, index) => {
@@ -212,7 +215,9 @@ export default function CheckoutPage() {
 
           <div className="w-full">
             <p className="text-base md:text-lg mb-1">{ten_san_pham}</p>
-            <p className="text-sm md:text-base text-[#777171]">Số lượng: {so_luong}</p>
+            <p className="text-sm md:text-base text-[#777171]">
+              Số lượng: {so_luong}
+            </p>
           </div>
 
           <span className="text-base md:text-lg text-[#777171]">
@@ -231,19 +236,19 @@ export default function CheckoutPage() {
         return {
           san_pham_id: product.san_pham_id,
           so_luong: product.so_luong,
-          don_gia: product.gia_ban
-        }
+          don_gia: product.gia_ban,
+        };
       }),
     };
 
-    delete payload['anh_dai_dien'];
-    delete payload['gioi_tinh'];
-    delete payload['isDelete'];
-    delete payload['mat_khau'];
-    delete payload['vai_tro_id'];
+    delete payload["anh_dai_dien"];
+    delete payload["gioi_tinh"];
+    delete payload["isDelete"];
+    delete payload["mat_khau"];
+    delete payload["vai_tro_id"];
 
     mutateAsync(payload);
-  }
+  };
 
   const SErrors: any = errors;
 
@@ -260,7 +265,8 @@ export default function CheckoutPage() {
             text-center
             sm:border-b-[1.5px]
             sm:border-b-black
-        `}>
+        `}
+        >
           Thanh toán
         </h1>
       </div>
@@ -273,18 +279,21 @@ export default function CheckoutPage() {
                 <span className="lg:hidden">
                   <FaRegIdCard className="inline-block me-1" />
                 </span>
-
                 Thông tin mua hàng
               </h1>
 
-              {!isLogin && <div className="text-[13px] lg:text-base flex items-center" onClick={() => {
-                navigate('/login')
-              }}>
-                <PiUserCircleFill className="inline w-[18px] h-[18px]" />
-                <span className="ms-1 lg:ms-[10px]">Đăng nhập</span>
-              </div>}
+              {!isLogin && (
+                <div
+                  className="text-[13px] lg:text-base flex items-center"
+                  onClick={() => {
+                    navigate("/login");
+                  }}
+                >
+                  <PiUserCircleFill className="inline w-[18px] h-[18px]" />
+                  <span className="ms-1 lg:ms-[10px]">Đăng nhập</span>
+                </div>
+              )}
             </div>
-
 
             <Controller
               name="email"
@@ -363,8 +372,8 @@ export default function CheckoutPage() {
                       displayKey={"name"}
                       onChanged={(_: any, value: any) => {
                         field.onChange(value);
-                        setValue("quan_id", "")
-                        setValue("phuong_id", "")
+                        setValue("quan_id", "");
+                        setValue("phuong_id", "");
                       }}
                       defaultValue={field.value}
                       valueKey={"id"}
@@ -390,7 +399,7 @@ export default function CheckoutPage() {
                       disabled={!watch("tinh_thanh_id")}
                       onChanged={(_: any, value: any) => {
                         field.onChange(value);
-                        setValue("phuong_id", "")
+                        setValue("phuong_id", "");
                       }}
                       defaultValue={field.value}
                       valueKey={"id"}
@@ -456,18 +465,25 @@ export default function CheckoutPage() {
                 control={control}
                 render={({ field }: any) => {
                   return (
-                    <RadioGroup defaultValue={field.value} onChange={(event: any) => {
-                      field.onChange(event.target.value)
-                    }} >
+                    <RadioGroup
+                      defaultValue={field.value}
+                      onChange={(event: any) => {
+                        field.onChange(event.target.value);
+                      }}
+                    >
                       <div className="flex items-center space-x-2">
                         <RadioGroupItem value="2" id="2" />
 
-                        <Label htmlFor="2" className="text-base">Chuyển khoản qua ngân hàng</Label>
+                        <Label htmlFor="2" className="text-base">
+                          Chuyển khoản qua ngân hàng
+                        </Label>
                       </div>
 
                       <div className="flex items-center space-x-2 mt-2">
                         <RadioGroupItem value="1" id="1" />
-                        <Label htmlFor="1" className="text-base">Thanh toán khi nhận hàng (COD)</Label>
+                        <Label htmlFor="1" className="text-base">
+                          Thanh toán khi nhận hàng (COD)
+                        </Label>
                       </div>
                     </RadioGroup>
                   );
@@ -475,15 +491,21 @@ export default function CheckoutPage() {
               />
 
               <div className="lg:hidden text-xl border-t-[1px] border-[#777171]">
-                <Button
-                  disabled={!isEmpty(errors)}
-                  type="submit"
-                >
-                  ĐẶT HÀNG
-                </Button>
+                <div className="flex justify-center mt-2 mb-3">
+                  <Button
+                    disabled={!isEmpty(errors)}
+                    type="submit"
+                    className="mt-3 w-full"
+                  >
+                    ĐẶT HÀNG
+                  </Button>
+                </div>
 
                 <div className="flex justify-center mb-9">
-                  <a href="/cart" className="flex items-center text-xs text-[#777171]">
+                  <a
+                    href="/cart"
+                    className="flex items-center text-xs text-[#777171]"
+                  >
                     <FaAngleLeft className="inline me-1" />
                     <p>Quay về giỏ hàng</p>
                   </a>
@@ -520,7 +542,6 @@ export default function CheckoutPage() {
 
             {renderData()}
 
-
             <div
               className={`
                   flex 
@@ -531,8 +552,7 @@ export default function CheckoutPage() {
                   py-5 
                   lg:py-8 
                   border-y-[0.5px] 
-                  border-[#777171]`
-              }
+                  border-[#777171]`}
             >
               <Input
                 placeholder="Nhập mã giảm giá"
@@ -540,7 +560,7 @@ export default function CheckoutPage() {
                 onChange={(e) => {
                   const value = e.target.value;
 
-                  setVoucher(value)
+                  setVoucher(value);
                 }}
               />
 
@@ -566,26 +586,35 @@ export default function CheckoutPage() {
               text-[13px]
               lg:text-xl
               font-light 
-              leading-6`}>
-
+              leading-6`}
+            >
               <div className="flex justify-between mb-1 lg:mb-2">
                 <p className="text-base md:text-lg text-[#777171]">Tạm tính</p>
-                <p className="text-base md:text-lg text-primary font-medium">{formatCurrency(totalProductPrice)}</p>
+                <p className="text-base md:text-lg text-primary font-medium">
+                  {formatCurrency(totalProductPrice)}
+                </p>
               </div>
 
               <div className="flex justify-between mb-1 lg:mb-2">
-                <p className="text-base md:text-lg text-[#777171]">Phí vận chuyển</p>
-                <p className="text-base md:text-lg text-primary font-medium">{formatCurrency(SHIPPING_PRICE)}</p>
+                <p className="text-base md:text-lg text-[#777171]">
+                  Phí vận chuyển
+                </p>
+                <p className="text-base md:text-lg text-primary font-medium">
+                  {formatCurrency(SHIPPING_PRICE)}
+                </p>
               </div>
 
               <div className="flex justify-between">
                 <p className="text-base md:text-lg text-[#777171]">Giảm giá</p>
-                <p className="text-base md:text-lg text-primary font-medium">{formatCurrency(priceDiscount)}</p>
+                <p className="text-base md:text-lg text-primary font-medium">
+                  {formatCurrency(priceDiscount)}
+                </p>
               </div>
             </div>
 
             <div>
-              <div className={`
+              <div
+                className={`
                   flex 
                   justify-between
                   text-[13px]
@@ -596,13 +625,17 @@ export default function CheckoutPage() {
                   mb-5
                   lg:mb-9
                   font-medium
-                  `}>
+                  `}
+              >
                 <p>Tổng cộng</p>
                 <p className="font-medium">{formatCurrency(totalPrice)}</p>
               </div>
 
               <div className="hidden lg:flex justify-between ">
-                <Link className="text-base flex items-center text-[#777171]" to="/cart">
+                <Link
+                  className="text-base flex items-center text-[#777171]"
+                  to="/cart"
+                >
                   <FaAngleLeft className="inline me-1" />
 
                   <p>Quay về giỏ hàng</p>
@@ -612,7 +645,8 @@ export default function CheckoutPage() {
                   className="h-[48px] px-8 text-lg"
                   disabled={!isEmpty(errors) || isLoading}
                   type="submit"
-                >Đặt hàng
+                >
+                  Đặt hàng
                 </Button>
               </div>
             </div>
