@@ -287,7 +287,7 @@ export default function Home() {
           <div className="relative">
             <img
               className="w-full h-[380px] md:h-[500px]"
-              src="https://hokkaidovietnam.com/wp-content/uploads/2018/04/h2-img-4a.jpg"
+              src="https://images.pexels.com/photos/10829422/pexels-photo-10829422.jpeg"
               alt=""
             />
 
