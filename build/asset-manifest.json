@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.3857c76d.css",
-    "main.js": "/static/js/main.b7b857d6.js",
+    "main.js": "/static/js/main.7494f6d6.js",
     "static/media/bg1.png": "/static/media/bg1.f9cb826a9e0f6c0d5175.png",
     "static/media/3.jpg": "/static/media/3.c5840d5b72cba0e69d61.jpg",
     "static/media/slider01.png": "/static/media/slider01.0f64dd76c6afe4f7712b.png",
@@ -32,6 +32,7 @@
     "static/media/brand4.png": "/static/media/brand4.c2394915789b5d33f226.png",
     "static/media/15.jpg": "/static/media/15.a319ab7ef4dab457f28a.jpg",
     "static/media/21.jpeg": "/static/media/21.bdd0e607f5e4e03efc92.jpeg",
+    "static/media/28.png": "/static/media/28.bdd0e607f5e4e03efc92.png",
     "static/media/20.jpeg": "/static/media/20.390727f1c519599e9c80.jpeg",
     "static/media/sp4.png": "/static/media/sp4.39249cfb4b995f280b4f.png",
     "static/media/16.jpg": "/static/media/16.498941270f2f4c418101.jpg",
@@ -74,10 +75,10 @@
     "static/media/empty-svg.svg": "/static/media/empty-svg.a8ec4f5fd196f6e32c03b67339463c6b.svg",
     "static/media/empty-color.svg": "/static/media/empty-color.869688c089024dfbfa27118ad7527696.svg",
     "main.3857c76d.css.map": "/static/css/main.3857c76d.css.map",
-    "main.b7b857d6.js.map": "/static/js/main.b7b857d6.js.map"
+    "main.7494f6d6.js.map": "/static/js/main.7494f6d6.js.map"
   },
   "entrypoints": [
     "static/css/main.3857c76d.css",
-    "static/js/main.b7b857d6.js"
+    "static/js/main.7494f6d6.js"
   ]
 }

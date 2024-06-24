@@ -13,6 +13,7 @@ import img7 from "../../assets/img_home/7.png";
 import img8 from "../../assets/img_home/8.png";
 import img9 from "../../assets/img_home/9.png";
 import img10 from "../../assets/img_home/10.png";
+import img28 from "../../assets/img_home/28.png";
 import bg1 from "../../assets/img_home/bg1.png";
 import bg2 from "../../assets/img_home/bg2.png";
 import logofb from "../../assets/img_home/logo-fb.png";
@@ -285,11 +286,7 @@ export default function Home() {
         <GrungeSVG position="top" />
         <div className="grid grid-cols-1 md:grid-cols-2">
           <div className="relative">
-            <img
-              className="w-full h-[380px] md:h-[500px]"
-              src="https://images.pexels.com/photos/10829422/pexels-photo-10829422.jpeg"
-              alt=""
-            />
+            <img className="w-full h-[380px] md:h-[500px]" src={img28} alt="" />
 
             <div className="absolute inset-0 object-cover flex items-center justify-center">
               <button className="text-white hover:scale-110" id="playButton">
