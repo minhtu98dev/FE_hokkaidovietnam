@@ -250,7 +250,7 @@ export default function Home() {
             <img src={img4} alt="" className="mx-auto" />
           </div>
           <h3 className="text-center font-medium text-xl mb-1">
-            Trang Thiết Bị Hiện Đại Nhất
+            Trang Thiết Bị Hiện Đại
           </h3>
           <span className="block text-center text-gray-500 text-sm">
             Một nhà máy được bao quanh bởi không khí trong lành và cây xanh.
