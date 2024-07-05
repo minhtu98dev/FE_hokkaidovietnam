@@ -1,4 +1,4 @@
-const { fontFamily } = require("tailwindcss/defaultTheme")
+const { fontFamily } = require("tailwindcss/defaultTheme");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -8,13 +8,13 @@ module.exports = {
     container: {
       center: true,
       padding: {
-        DEFAULT: '0rem',
-        sm: '0.5rem',
-        md: '1rem',
-        lg: '1.5rem',
-        xl: '3.125rem',
-        '2xl': '7rem',
-      }
+        DEFAULT: "0rem",
+        sm: "0.5rem",
+        md: "1rem",
+        lg: "1.5rem",
+        xl: "3.125rem",
+        "2xl": "7rem",
+      },
     },
     extend: {
       colors: {
@@ -52,17 +52,17 @@ module.exports = {
           foreground: "hsl(var(--card-foreground))",
         },
         success: {
-          DEFAULT: "#00d664"
+          DEFAULT: "#00d664",
         },
         warning: {
-          DEFAULT: "#ffca47"
+          DEFAULT: "#ffca47",
         },
         error: {
-          DEFAULT: "#f45757"
+          DEFAULT: "#f45757",
         },
         info: {
-          DEFAULT: "#0270ad"
-        }
+          DEFAULT: "#0270ad",
+        },
       },
       borderRadius: {
         lg: `var(--radius)`,
@@ -81,12 +81,17 @@ module.exports = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        fadeIn: {
+          from: { opacity: 0 },
+          to: { opacity: 1 },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "fade-in": "fadeIn 2s ease-in-out forwards",
       },
     },
   },
   plugins: [require("tailwindcss-animate")],
-}
+};

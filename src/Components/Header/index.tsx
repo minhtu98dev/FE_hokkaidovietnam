@@ -91,11 +91,13 @@ export default function Header() {
 
   return (
     <header
-      className={`header ${isUseTransition ? "header__transparent" : "header__whitebox"
-        } ${isScrolled
+      className={`header ${
+        isUseTransition ? "header__transparent" : "header__whitebox"
+      } ${
+        isScrolled
           ? "header__transparent__scrolling"
           : "header__whitebox__scrolling"
-        } z-50
+      } z-50
         ${isOpenMenu ? "bg-white text-black" : "hover:bg-white"}
         hover:text-black
         overflow-hidden
@@ -166,7 +168,7 @@ export default function Header() {
                 {isAdmin && (
                   <DropdownMenuItem
                     onClick={() => {
-                      navigate("/admin/customer");
+                      navigate("/admin/order");
                     }}
                   >
                     Vào admin

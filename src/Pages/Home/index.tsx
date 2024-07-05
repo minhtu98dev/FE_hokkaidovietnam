@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Fragment } from "react";
 import { Link } from "react-router-dom";
 import { FaPlayCircle } from "react-icons/fa";
-
+import "./styles.css";
 import img1 from "../../assets/img_home/1.jpg";
 import img2 from "../../assets/img_home/2.jpg";
 import img3 from "../../assets/img_home/3.jpg";
@@ -23,6 +23,7 @@ import logoyt from "../../assets/img_home/logo-yt.png";
 import logozalo from "../../assets/img_home/logo-zalo.png";
 import logophone from "../../assets/img_home/logo-phone.png";
 import tree from "../../assets/img_home/tree.png";
+import logoHokkaido from "../../assets/image/logo.png";
 
 import { Carousel } from "../../Components/Carousel/Carousel";
 import GrungeSVG from "@/Components/GrungeSVG/GrungeSVG";
@@ -182,16 +183,26 @@ export default function Home() {
   return (
     <div className="relative">
       {/* carosel */}
-      <Carousel>
-        {slides.map((s, index) => (
+      <div className="relative">
+        <Carousel>
+          {slides.map((s, index) => (
+            <img
+              key={index}
+              className="w-full object-cover object-center min-h-[500px] md:min-h-full"
+              src={s}
+              alt=""
+            />
+          ))}
+        </Carousel>
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
           <img
-            key={index}
-            className="w-full object-cover object-center min-h-[500px] md:min-h-full"
-            src={s}
+            src={logoHokkaido}
             alt=""
+            className="w-[250px] lg:w-[450px] h-auto animate-pulse"
           />
-        ))}
-      </Carousel>
+        </div>
+      </div>
+
       {/* quảng cáo */}
       <div className="grid grid-cols-1 md:grid-cols-3 mt-5 md:mt-0 mb-10 gap-5 md:gap-0 mx-8 my-auto md:mx-0">
         {/* Cột 1 */}
