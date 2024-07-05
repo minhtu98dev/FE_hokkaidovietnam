@@ -90,6 +90,7 @@ module.exports = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "fade-in": "fadeIn 2s ease-in-out forwards",
+        "slide-from-top": "slideFromTop 1.5s ease forwards",
       },
     },
   },

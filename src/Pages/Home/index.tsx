@@ -195,11 +195,13 @@ export default function Home() {
           ))}
         </Carousel>
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <img
-            src={logoHokkaido}
-            alt=""
-            className="w-[250px] lg:w-[450px] h-auto animate-pulse"
-          />
+          <Link to="/products" className="pointer-events-auto">
+            <img
+              src={logoHokkaido}
+              alt=""
+              className="w-[250px] lg:w-[450px] h-auto animate-slide-from-top"
+            />
+          </Link>
         </div>
       </div>
 
