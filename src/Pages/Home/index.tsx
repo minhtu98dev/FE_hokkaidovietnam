@@ -3,6 +3,7 @@ import { Fragment } from "react";
 import { Link } from "react-router-dom";
 import { FaPlayCircle } from "react-icons/fa";
 import "./styles.css";
+import { useInView } from "react-intersection-observer";
 import img1 from "../../assets/img_home/1.jpg";
 import img2 from "../../assets/img_home/2.jpg";
 import img3 from "../../assets/img_home/3.jpg";
@@ -24,7 +25,7 @@ import logozalo from "../../assets/img_home/logo-zalo.png";
 import logophone from "../../assets/img_home/logo-phone.png";
 import tree from "../../assets/img_home/tree.png";
 import logoHokkaido from "../../assets/image/logo.png";
-
+import CountUp from "react-countup";
 import { Carousel } from "../../Components/Carousel/Carousel";
 import GrungeSVG from "@/Components/GrungeSVG/GrungeSVG";
 import OurFarm from "@/Components/OurFarm/OurFarm";
@@ -103,7 +104,10 @@ export default function Home() {
   const [showFieldLifeModal, setShowFieldLifeModal] = useState(false);
   const [showOrganicMilkModal, setShowOrganicMilkModal] = useState(false);
   const [showFarmCrewModal, setShowFarmCrewModal] = useState(false);
-
+  const { ref: ref1, inView: inView1 } = useInView({ triggerOnce: true });
+  const { ref: ref2, inView: inView2 } = useInView({ triggerOnce: true });
+  const { ref: ref3, inView: inView3 } = useInView({ triggerOnce: true });
+  const { ref: ref4, inView: inView4 } = useInView({ triggerOnce: true });
   const openOurFarmModal = () => {
     setShowOurFarmModal(true);
   };
@@ -199,7 +203,7 @@ export default function Home() {
             <img
               src={logoHokkaido}
               alt=""
-              className="w-[250px] lg:w-[450px] h-auto animate-slide-from-top "
+              className="w-[150px] lg:w-[300px] h-auto animate-slide-from-top "
             />
           </Link>
         </div>
@@ -349,33 +353,33 @@ export default function Home() {
           />
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="grid grid-cols-2 md:grid-cols-4 md:mt-8 gap-4 text-center text-black text-6xl">
-              <div>
+              <div ref={ref1}>
                 <h1 className=" text-6xl md:text-7xl text-white mt-16 md:mt-10 font-semibold">
-                  82
+                  {inView1 && <CountUp end={82} duration={3} />}
                 </h1>
                 <span className="block text-white text-base md:text-2xl mt-5">
                   Chuyên Gia Trang Trại
                 </span>
               </div>
-              <div>
-                <h1 className=" text-6xl md:text-7xl text-white mt-16 md:mt-10 font-semibold">
-                  139
+              <div ref={ref2}>
+                <h1 className="text-6xl md:text-7xl text-white mt-16 md:mt-10 font-semibold">
+                  {inView2 && <CountUp end={139} duration={3} />}
                 </h1>
                 <span className="block text-white text-base md:text-2xl mt-5">
                   Sản Phẩm Sữa
                 </span>
               </div>
-              <div>
-                <h1 className=" text-6xl md:text-7xl text-white mt-1 md:mt-10 font-semibold">
-                  34
+              <div ref={ref3}>
+                <h1 className="text-6xl md:text-7xl text-white mt-1 md:mt-10 font-semibold">
+                  {inView3 && <CountUp end={34} duration={3} />}
                 </h1>
                 <span className="block text-white text-base md:text-2xl mt-5">
-                  Giấy phép
+                  Giấy Phép
                 </span>
               </div>
-              <div>
-                <h1 className=" text-6xl md:text-7xl text-white mt-1 md:mt-10 font-semibold">
-                  59
+              <div ref={ref4}>
+                <h1 className="text-6xl md:text-7xl text-white mt-1 md:mt-10 font-semibold">
+                  {inView4 && <CountUp end={59} duration={3} />}
                 </h1>
                 <span className="block text-white text-base md:text-2xl mt-5">
                   Giải Thưởng
@@ -400,7 +404,7 @@ export default function Home() {
               className="text-white text-xl md:text-3xl md:font-bold"
               onClick={openOurFarmModal}
             >
-              Our Farm
+              Trang Trại Của Chúng Tôi
             </button>
           </div>
         </div>
@@ -421,7 +425,7 @@ export default function Home() {
               className="text-white text-xl md:text-3xl md:font-bold"
               onClick={openFieldLifeModal}
             >
-              Field Life
+              Cuộc Sống Thực Địa
             </button>
           </div>
         </div>
@@ -442,7 +446,7 @@ export default function Home() {
               className="text-white text-xl md:text-3xl md:font-bold"
               onClick={openOrganicMilkModal}
             >
-              Organic Milk
+              Sữa Hữu Cơ
             </button>
           </div>
         </div>
@@ -460,7 +464,7 @@ export default function Home() {
               className="text-white text-xl md:text-3xl md:font-bold"
               onClick={openFarmCrewModal}
             >
-              Farm Crew
+              Đội Nông Trại
             </button>
           </div>
         </div>

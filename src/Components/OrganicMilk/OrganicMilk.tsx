@@ -22,18 +22,16 @@ const OrganicMilk: React.FC<ModalProps> = ({ show, closeModal }) => {
             >
               <IoMdClose size={30} />
             </button>
-            <h2 className="text-3xl font-bold mb-4 text-center">
-              Organic Milk
-            </h2>
-            <h2 className="text-xl text-center mb-4">Happy Cow</h2>
+            <h2 className="text-3xl font-bold mb-4 text-center">Sữa hữu cơ</h2>
             <div className="mx-auto text-center">
               <span className="text-gray-600 text-base">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                nulla pariatur.
+                Việc có bệnh nhân là rất quan trọng nhưng tôi sẽ phải trả tiền
+                cho việc đó Lúc đó họ lâm vào tình trạng chuyển dạ và đau đớn
+                tột độ. BẰNG vì tôi sẽ đến ít nhất, người không thực hiện bất kỳ
+                loại công việc nào ngoại trừ một số trong đó có thể hữu ích.
+                Đừng để nỗi đau biến mất khi bị quở trách, khi vui sướng, nó
+                muốn làm một sợi tóc, và khi đau đớn nó chạy trốn không có sự
+                giao phối.
               </span>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 mt-3 gap-5">
