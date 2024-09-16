@@ -17,6 +17,11 @@ import img10 from "../../assets/img_home/10.png";
 import img28 from "../../assets/img_home/28.png";
 import bg1 from "../../assets/img_home/bg1.png";
 import bg2 from "../../assets/img_home/bg2.png";
+import bn6 from "../../assets/img_home/bn6.jpg";
+import bn7 from "../../assets/img_home/bn7.png";
+import logo1 from "../../assets/img_home/logo1.png";
+import logo2 from "../../assets/img_home/logo2.png";
+import logo3 from "../../assets/img_home/logo3.png";
 import logofb from "../../assets/img_home/logo-fb.png";
 import logotiktok from "../../assets/img_home/logo-tiktok.png";
 import logoinsta from "../../assets/img_home/logo-insta.png";
@@ -67,12 +72,8 @@ export default function Home() {
     retry: 0,
   });
 
-  const slides: string[] = [
-    "https://images.pexels.com/photos/10829198/pexels-photo-10829198.jpeg",
-    "https://images.unsplash.com/photo-1594731884638-8197c3102d1d",
-    "https://images.pexels.com/photos/12639450/pexels-photo-12639450.jpeg",
-    "https://images.unsplash.com/photo-1580570598977-4b2412d01bbc",
-  ];
+  const slides: string[] = [bn6, bn7];
+  // anh 1920x800
 
   useEffect(() => {
     const handlePlayButtonClick = () => {
@@ -192,20 +193,39 @@ export default function Home() {
           {slides.map((s, index) => (
             <img
               key={index}
-              className="w-full object-cover object-center min-h-[500px] md:min-h-full"
+              className="w-full object-cover h-[500px]  md:h-[650px] lg:h-[800px]"
               src={s}
               alt=""
             />
           ))}
         </Carousel>
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none hover:scale-110">
-          <Link to="/products" className="pointer-events-auto">
-            <img
-              src={logoHokkaido}
-              alt=""
-              className="w-[150px] lg:w-[300px] h-auto animate-slide-from-top "
-            />
-          </Link>
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <div className="pointer-events-auto flex space-x-4">
+            <div className="relative">
+              <img
+                src={logo1}
+                alt="logo1"
+                className=" mt-2 absolute inset-0 h-[60px]  animate-slide-from-11 lg:h-[130px] w-auto lg:animate-slide-from-1"
+              />
+              <img
+                src={logo2}
+                alt="logo2"
+                className=" mt-2 absolute inset-0 h-[110px] animate-slide-from-21 lg:h-[210px] w-auto lg:animate-slide-from-2"
+              />
+              <img
+                src={logo3}
+                alt="logo3"
+                className="mt-2 absolute inset-0 h-[60px] animate-slide-from-31 lg:h-[125px] w-auto lg:animate-slide-from-3"
+              />
+              <Link to="/products">
+                <img
+                  src={logoHokkaido}
+                  alt="Logo Hokkaido"
+                  className="w-[230px] lg:w-[430px] opacity-0 h-auto animate-slide-from-bottom animate-delay-1000"
+                />
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
 

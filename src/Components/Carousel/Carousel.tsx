@@ -9,18 +9,18 @@ interface CarouselProps {
 
 export const Carousel: React.FC<CarouselProps> = ({
   children: slides,
-  autoSlide = false,
-  autoSlideInterval = 3000,
+  autoSlide = true,
+  autoSlideInterval = 5000,
 }) => {
   const [curr, setCurr] = useState<number>(0);
 
-  const prev = useCallback(() =>
-    setCurr((curr) => (curr === 0 ? slides.length - 1 : curr - 1)),
+  const prev = useCallback(
+    () => setCurr((curr) => (curr === 0 ? slides.length - 1 : curr - 1)),
     [slides.length]
   );
 
-  const next = useCallback(() =>
-    setCurr((curr) => (curr === slides.length - 1 ? 0 : curr + 1)),
+  const next = useCallback(
+    () => setCurr((curr) => (curr === slides.length - 1 ? 0 : curr + 1)),
     [slides.length]
   );
 
@@ -31,7 +31,7 @@ export const Carousel: React.FC<CarouselProps> = ({
   }, [autoSlide, autoSlideInterval, next]);
 
   return (
-    <div className="overflow-hidden relative h-[500px] md:h-[800px] md:content-center">
+    <div className="overflow-hidden relative h-[500px] md:h-[650px] lg:h-[800px]">
       <div
         className="flex transition-transform ease-out duration-500"
         style={{ transform: `translateX(-${curr * 100}%)` }}
@@ -51,8 +51,9 @@ export const Carousel: React.FC<CarouselProps> = ({
           {slides.map((_, i) => (
             <div
               key={i}
-              className={`transition-all w-1 h-1 md:w-3 md:h-3 bg-white rounded-full ${curr === i ? "p-1 md:p-2" : "bg-opacity-50"
-                }`}
+              className={`transition-all w-1 h-1 md:w-3 md:h-3 bg-white rounded-full ${
+                curr === i ? "p-1 md:p-2" : "bg-opacity-50"
+              }`}
             ></div>
           ))}
         </div>

@@ -85,14 +85,70 @@ module.exports = {
           from: { opacity: 0 },
           to: { opacity: 1 },
         },
+        slideFromLeft: {
+          "0%": { transform: "translateX(-200%)" },
+          "100%": { transform: "translateX(0)" },
+        },
+        slideFromRight: {
+          "0%": { transform: "translateX(200%) rotate(18deg)" },
+          "100%": { transform: "translateX(270px) rotate(18deg)" },
+        },
+        slideFromBottom: {
+          "0%": { transform: "translateY(100%)", opacity: "0" },
+          "100%": { transform: "translateY(0)", opacity: "1" },
+        },
+        slideFrom1: {
+          "0%": { transform: "translate(-100vw, -100vh)" },
+          "100%": { transform: "translate(-90px, 40px)" },
+        },
+        slideFrom11: {
+          "0%": { transform: "translate(-100vw, -100vh)" },
+          "100%": { transform: "translate(-43px, 30px)" },
+        },
+        slideFrom2: {
+          "0%": { transform: "translate(100vw, -100vh)" },
+          "100%": { transform: "translate(390px, 10px)" },
+        },
+        slideFrom21: {
+          "0%": { transform: "translate(100vw, -100vh)" },
+          "100%": { transform: "translate(210px, 5px)" },
+        },
+        slideFrom3: {
+          "0%": { transform: "translate(-100vw, 100vh)" },
+          "100%": { transform: "translate(-18px, 190px)" },
+        },
+        slideFrom31: {
+          "0%": { transform: "translate(-100vw, 100vh)" },
+          "100%": { transform: "translate(-5px, 100px)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "fade-in": "fadeIn 2s ease-in-out forwards",
         "slide-from-top": "slideFromTop 1.5s ease forwards",
+        "slide-from-bottom": "slideFromBottom 1.5s ease forwards",
+        "slide-from-right": "slideFromRight 1s ease-out",
+        "slide-from-1": "slideFrom1 1.5s ease forwards",
+        "slide-from-11": "slideFrom11 1.5s ease forwards",
+        "slide-from-2": "slideFrom2 1.5s ease forwards",
+        "slide-from-21": "slideFrom21 1.5s ease forwards",
+        "slide-from-3": "slideFrom3 1.5s ease forwards",
+        "slide-from-31": "slideFrom31 1.5s ease forwards",
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    function ({ addUtilities }) {
+      addUtilities(
+        {
+          ".animate-delay-1000": {
+            "animation-delay": "1s",
+          },
+        },
+        ["responsive", "hover"]
+      );
+    },
+  ],
 };
