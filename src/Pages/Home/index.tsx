@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 import { FaPlayCircle } from "react-icons/fa";
 import "./styles.css";
 import { useInView } from "react-intersection-observer";
-import img1 from "../../assets/img_home/1.jpg";
-import img2 from "../../assets/img_home/2.jpg";
-import img3 from "../../assets/img_home/3.jpg";
+// import img1 from "../../assets/img_home/1.jpg";
+// import img2 from "../../assets/img_home/2.jpg";
+// import img3 from "../../assets/img_home/3.jpg";
 import img4 from "../../assets/img_home/4.png";
 import img5 from "../../assets/img_home/5.png";
 import img6 from "../../assets/img_home/6.png";
@@ -191,12 +191,15 @@ export default function Home() {
       <div className="relative">
         <Carousel>
           {slides.map((s, index) => (
-            <img
-              key={index}
-              className="w-full object-cover h-[500px]  md:h-[650px] lg:h-[800px]"
-              src={s}
-              alt=""
-            />
+            <>
+              <img
+                key={index}
+                className="w-full object-cover h-[500px]  md:h-[650px] lg:h-[800px]"
+                src={s}
+                alt=""
+              />
+              <GrungeSVG position="bottom" />
+            </>
           ))}
         </Carousel>
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
@@ -229,59 +232,8 @@ export default function Home() {
         </div>
       </div>
 
-      {/* quảng cáo */}
-      <div className="grid grid-cols-1 md:grid-cols-3 mt-5 md:mt-0 mb-10 gap-5 md:gap-0 mx-8 my-auto md:mx-0">
-        {/* Cột 1 */}
-        <div className="h-[60vw] md:h-[500px] relative overflow-hidden group">
-          <img
-            src={img1}
-            alt=""
-            className="absolute inset-0 w-full h-full object-cover object-center"
-          />
-          <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center -bottom-10 group-hover:bottom-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
-            <Link to="/products">
-              <button className="text-white text-2xl md:text-3xl md:font-bold">
-                Xem ngay
-              </button>
-            </Link>
-          </div>
-        </div>
-
-        {/* Cột 2 */}
-        <div className="h-[60vw] md:h-[500px] relative overflow-hidden group">
-          <img
-            src={img2}
-            alt=""
-            className="absolute inset-0 w-full h-full object-cover object-center"
-          />
-          <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center -bottom-10 group-hover:bottom-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
-            <Link to="/products">
-              <button className="text-white text-2xl md:text-3xl md:font-bold">
-                Xem ngay
-              </button>
-            </Link>
-          </div>
-        </div>
-
-        {/* Cột 3 */}
-        <div className="h-[60vw] md:h-[500px] relative overflow-hidden group">
-          <img
-            src={img3}
-            alt=""
-            className="absolute inset-0 w-full h-full object-cover object-center"
-          />
-          <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center -bottom-10 group-hover:bottom-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
-            <Link to="/products">
-              <button className="text-white text-2xl md:text-3xl md:font-bold">
-                Xem ngay
-              </button>
-            </Link>
-          </div>
-        </div>
-      </div>
-
       {/* Trang thiết bị */}
-      <div className="grid grid-cols-1 md:grid-cols-3 mx-auto max-w-7xl mb-[70px] ">
+      <div className="grid grid-cols-1 md:grid-cols-3 mx-auto max-w-7xl mb-[70px] mt-10">
         <div className="w-[250px] mx-auto">
           <div className="h-[200px] content-center">
             <img src={img4} alt="" className="mx-auto" />
