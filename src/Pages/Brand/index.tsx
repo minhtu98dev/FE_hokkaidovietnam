@@ -1,6 +1,6 @@
 import Banner from "@/Components/Banner";
 import banner1 from "assets/image/banner1.png";
-import brand_underline from "assets/image/brand_underline.png";
+import brand_underline from "assets/image/brand_underline3.png";
 
 export interface BrandIntroduce {
   id: number;
@@ -38,7 +38,7 @@ export default function Brand() {
       title: "Công nghệ sát khuẩn trong vòng 2s",
       content:
         "Đặc biệt với công nghệ sát khuẩn sữa cực nhanh trong vòng 2s nên sữa Hokkaido vẫn giữ nguyên được các vi khuẩn có lợi cho hệ miễn dịch cho bé. Sữa tươi nội địa Nhật 100% bổ sung canxi, protein, chất béo cho bé giúp bé phát triển toàn diện và năng động ngày dài",
-    }
+    },
   ];
 
   const dataItem = [
@@ -46,122 +46,143 @@ export default function Brand() {
       id: 1,
       image: "brand5.png",
       title: "Kiểm tra thành phần",
-      content: "Đạt chứng nhận FSSC22000"
+      content: "Đạt chứng nhận FSSC22000",
     },
     {
       id: 2,
       image: "brand6.png",
       title: "Xét nghiệm vi sinh",
-      content: "Đạt chứng nhận FSSC22000"
+      content: "Đạt chứng nhận FSSC22000",
     },
     {
       id: 3,
       image: "brand7.png",
       title: "Kiểm tra tổng số vi khuẩn sữa tươi",
-      content: "Đạt chứng nhận FSSC22000"
+      content: "Đạt chứng nhận FSSC22000",
     },
     {
       id: 4,
       image: "brand8.png",
       title: "Hệ thống thông minh",
-      content: "Đạt chứng nhận FSSC22000"
+      content: "Đạt chứng nhận FSSC22000",
     },
     {
       id: 5,
       image: "brand9.png",
       title: "Quét sữa",
-      content: "Đạt chứng nhận FSSC22000"
+      content: "Đạt chứng nhận FSSC22000",
     },
     {
       id: 6,
       image: "brand10.png",
       title: "Kiểm tra tài sản vật chất",
-      content: "Đạt chứng nhận FSSC22000"
-    }
-  ]
-
+      content: "Đạt chứng nhận FSSC22000",
+    },
+  ];
 
   const renderBrandContent = () => {
     return data.map((item, index) => {
       return (
-        <div
-          className={`
-          flex 
-          mb-[6px]
-          sm:mb-4
-          md:mb-8
-          lg:mb-10
-          xl:mb-[50px]`}
-          style={{ flexDirection: index % 2 ? "row-reverse" : "row" }}
-          key={item.id}
-        >
-          <div
-            className="w-1/2 itemLeftRespon flex"
-            style={{ justifyContent: index % 2 ? "end" : "" }}
-          >
+        // <div
+        //   className={`
+        //   flex
+        //   mb-[6px]
+        //   sm:mb-4
+        //   md:mb-8
+        //   lg:mb-10
+        //   xl:mb-[50px]`}
+        //   style={{ flexDirection: index % 2 ? "row-reverse" : "row" }}
+        //   key={item.id}
+        // >
+        //   <div
+        //     className="w-1/2 itemLeftRespon flex"
+        //     style={{ justifyContent: index % 2 ? "end" : "" }}
+        //   >
+        //     <img
+        //       className={`tagImgBrandRespon`}
+        //       src={require(`assets/image/${item.image}`)}
+        //       alt="brand1"
+        //     />
+        //   </div>
+
+        //   <div className="w-1/2 flex items-center itemRightRespon">
+        //     <div className="">
+        //       <h1
+        //         className={`
+        //         text-base
+        //         sm:text-2xl
+        //         text-center
+        //         font-medium
+        //         leading-[28.13px]`}
+        //       >
+        //         {item.title}
+        //       </h1>
+
+        //       <img
+        //         className={`
+        //         mx-auto
+        //         w-9
+        //         h-3
+        //         sm:w-auto
+        //         sm:h-auto
+        //         `}
+        //         src={brand_underline}
+        //         alt="brand_underline"
+        //       />
+        //       <p
+        //         className={`
+        //         test
+        //         text-center
+        //         text-[10px]
+        //         font-light
+        //         leading-[11.72px]
+        //         sm:leading-[23.44px]
+        //         sm:text-sm
+        //         md:text-base
+        //         lg:text-xl`}
+        //         style={{
+        //           paddingLeft: index % 2 ? "" : "10px",
+        //           paddingRight: index % 2 ? "10px" : "",
+        //         }}
+        //       >
+        //         {item.content}
+        //       </p>
+        //     </div>
+        //   </div>
+        // </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 mb-20 space-x-0 xl:space-x-10 items-center mt-20">
+          <div>
             <img
-              className={`tagImgBrandRespon`}
+              className="w-[90%] mx-auto lg:py-5 lg:px-8 xl:py-8 xl:px-10"
               src={require(`assets/image/${item.image}`)}
               alt="brand1"
             />
           </div>
 
-          <div className="w-1/2 flex items-center itemRightRespon">
-            <div className="">
-              <h1
-                className={`
-                text-base 
-                sm:text-2xl 
-                text-center 
-                font-medium
-                leading-[28.13px]`}
-              >
-                {item.title}
-              </h1>
-
-              <img
-                className={`
-                mx-auto
-                w-9
-                h-3
-                sm:w-auto
-                sm:h-auto
-                `}
-                src={brand_underline}
-                alt="brand_underline"
-              />
-              <p
-                className={`
-                test
-                text-center 
-                text-[10px]
-                font-light
-                leading-[11.72px]
-                sm:leading-[23.44px]
-                sm:text-sm
-                md:text-base
-                lg:text-xl`}
-                style={{
-                  paddingLeft: index % 2 ? "" : "10px",
-                  paddingRight: index % 2 ? "10px" : "",
-                }}
-              >
-                {item.content}
-              </p>
-            </div>
+          <div className="px-8 xl:p-10 ">
+            <h1 className="text-2xl xl:text-3xl mt-8 md:mt-0 font-medium mb-2">
+              {" "}
+              {item.title}
+            </h1>
+            <img src={brand_underline} alt="brand_underline" className="" />
+            <p className="text-base xl:text-lg mt-2">{item.content}</p>
           </div>
         </div>
       );
     });
   };
 
-
   const renderBrandItems = () => {
     return dataItem.map((item, index) => {
       return (
         <div className="text-center" key={item.id}>
-          <img className="w-full" src={require(`assets/image/${item.image}`)} alt={item.image} />
-          <h1 className={`
+          <img
+            className="w-full"
+            src={require(`assets/image/${item.image}`)}
+            alt={item.image}
+          />
+          <h1
+            className={`
               font-medium
 
               mt-2.5
@@ -172,8 +193,12 @@ export default function Brand() {
 
               leading-[14.06px]
               sm:leading-[23.44px]
-          `}>{item.title}</h1>
-          <p className={`
+          `}
+          >
+            {item.title}
+          </h1>
+          <p
+            className={`
             font-light
 
             mt-2.5
@@ -184,13 +209,14 @@ export default function Brand() {
             
             text-xs   
             sm:text-base
-          `}>{item.content}</p>
+          `}
+          >
+            {item.content}
+          </p>
         </div>
-      )
-    })
-  }
-
-
+      );
+    });
+  };
 
   return (
     <>
@@ -210,7 +236,8 @@ export default function Brand() {
       >
         {renderBrandContent()}
 
-        <div className={`
+        <div
+          className={`
               w-11/12
               sm:w-3/5
               xl:w-1/2
@@ -229,7 +256,8 @@ export default function Brand() {
               xl:mb-[52px]
 
               mx-auto
-              `}>
+              `}
+        >
           <div className="">
             <h1
               className={`
@@ -275,16 +303,17 @@ export default function Brand() {
           </div>
         </div>
 
-        <div className={`
+        <div
+          className={`
               grid 
               grid-cols-2 
               lg:grid-cols-3 
               gap-x-5
               gap-y-3.5
               md:gap-y-14
-        `}>
+        `}
+        >
           {renderBrandItems()}
-
         </div>
       </div>
     </>
