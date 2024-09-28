@@ -25,7 +25,7 @@ import { selectUser } from "@/Redux/selectors/user.selector";
 const MENU_REDIRECT = [
   {
     path: "/",
-    name: "trang chủ",
+    name: "trang chủ1",
   },
   {
     path: "/products",
