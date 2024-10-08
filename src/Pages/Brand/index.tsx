@@ -225,7 +225,7 @@ export default function Brand() {
         title={<span style={{ color: "black" }}>Lịch sử hình thành</span>}
         background={banner1}
       /> */}
-      <div className="relative mb-20">
+      <div className="relative">
         <img
           className="h-[80px] md:h-[200px] w-full object-cover"
           src={bg1}

@@ -443,7 +443,7 @@ export default function Home() {
       </div>
 
       {/* sản phẩm nổi bật */}
-      <div className="flex flex-col items-center mt-8">
+      <div className="flex flex-col items-center mt-16">
         <h1 className="text-xl md:text-3xl font-medium mb-4">
           SẢN PHẨM NỔI BẬT
         </h1>
