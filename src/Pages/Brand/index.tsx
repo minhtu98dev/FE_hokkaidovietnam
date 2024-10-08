@@ -1,7 +1,8 @@
-import Banner from "@/Components/Banner";
-import banner1 from "assets/image/banner1.png";
+// import Banner from "@/Components/Banner";
+// import banner1 from "assets/image/banner1.png";
 import brand_underline from "assets/image/brand_underline3.png";
-
+import bg1 from "../../assets/img_new/bg1.png";
+import GrungeSVG from "@/Components/GrungeSVG/GrungeSVG";
 export interface BrandIntroduce {
   id: number;
   image: string;
@@ -220,10 +221,23 @@ export default function Brand() {
 
   return (
     <>
-      <Banner
-        title={<span style={{ color: "white" }}>Lịch sử hình thành</span>}
+      {/* <Banner
+        title={<span style={{ color: "black" }}>Lịch sử hình thành</span>}
         background={banner1}
-      />
+      /> */}
+      <div className="relative mb-20">
+        <img
+          className="h-[80px] md:h-[200px] w-full object-cover"
+          src={bg1}
+          alt=""
+        />
+        <GrungeSVG position="bottom" />
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white">
+          <h1 className="text-[16px] md:text-[32px] font-medium text-black">
+            Lịch sử hình thành
+          </h1>
+        </div>
+      </div>
 
       <div
         className={`
