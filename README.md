@@ -15,11 +15,14 @@
 -Tạo bài viết mới và có thể chỉnh sửa.
 
 ## Các Công Nghệ Sử Dụng
+
 *Frontend:
 - React
 - TypeScript
 - HTML, CSS, JavaScript
+  
 *Backend
 - NodeJS
+  
 *Database
 -MySQL
