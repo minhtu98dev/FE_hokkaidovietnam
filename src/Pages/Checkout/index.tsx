@@ -55,7 +55,7 @@ export default function CheckoutPage() {
   const [voucher, setVoucher] = useState("");
   const cartState = useSelector(selectCart);
   const userState = useSelector(selectUser);
-
+  const [isLoadingSubmit, setIsLoadingSubmit] = useState(false);
   const dispatch: any = useDispatch();
   const navigate = useNavigate();
   const { removeItem } = useLocalStorage();
@@ -228,7 +228,8 @@ export default function CheckoutPage() {
     });
   };
 
-  const handleOnSubmitForm = (values: any) => {
+  const handleOnSubmitForm = async (values: any) => {
+    setIsLoadingSubmit(true); // Bắt đầu trạng thái loading
     const payload = {
       ...values,
       tong_tien: totalPrice,
@@ -240,14 +241,23 @@ export default function CheckoutPage() {
         };
       }),
     };
-
+    // Xóa các thuộc tính không cần thiết
     delete payload["anh_dai_dien"];
     delete payload["gioi_tinh"];
     delete payload["isDelete"];
     delete payload["mat_khau"];
     delete payload["vai_tro_id"];
-
-    mutateAsync(payload);
+    try {
+      await mutateAsync(payload); // Chờ kết quả từ mutateAsync
+      setTimeout(() => {
+        navigate("/products");
+      }, 1000);
+      dispatch(actions.setCart([]));
+      removeItem(PREFIX);
+    } catch (error) {
+    } finally {
+      setIsLoadingSubmit(false); // Kết thúc trạng thái loading
+    }
   };
 
   const SErrors: any = errors;
@@ -493,11 +503,11 @@ export default function CheckoutPage() {
               <div className="lg:hidden text-xl border-t-[1px] border-[#777171]">
                 <div className="flex justify-center mt-2 mb-3">
                   <Button
-                    disabled={!isEmpty(errors)}
+                    disabled={!isEmpty(errors) || isLoading || isLoadingSubmit}
                     type="submit"
                     className="mt-3 w-full"
                   >
-                    ĐẶT HÀNG
+                    {isLoadingSubmit ? "Đang xử lý..." : "Đặt hàng"}
                   </Button>
                 </div>
 
@@ -643,10 +653,10 @@ export default function CheckoutPage() {
 
                 <Button
                   className="h-[48px] px-8 text-lg"
-                  disabled={!isEmpty(errors) || isLoading}
+                  disabled={!isEmpty(errors) || isLoading || isLoadingSubmit}
                   type="submit"
                 >
-                  Đặt hàng
+                  {isLoadingSubmit ? "Đang xử lý..." : "Đặt hàng"}
                 </Button>
               </div>
             </div>
