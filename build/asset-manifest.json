@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.ca6a75e8.css",
-    "main.js": "/static/js/main.f402b792.js",
+    "main.js": "/static/js/main.2d757dd0.js",
     "static/media/bg1.png": "/static/media/bg1.f9cb826a9e0f6c0d5175.png",
     "static/media/bn7.png": "/static/media/bn7.4f27d6ab01ac1c3424cc.png",
     "static/media/slider01.png": "/static/media/slider01.0f64dd76c6afe4f7712b.png",
@@ -64,6 +64,7 @@
     "static/media/logo-fb.png": "/static/media/logo-fb.184a6f2390e2e0e28d02.png",
     "static/media/logo2.png": "/static/media/logo2.1b9c8d01521a51973071.png",
     "static/media/logo.png": "/static/media/logo.4bfb8a7bec8342187a29.png",
+    "static/media/logoHokkaido.png": "/static/media/logoHokkaido.4bfb8a7bec8342187a29.png",
     "static/media/logo-zalo.png": "/static/media/logo-zalo.09f37a4ab62256f2cf44.png",
     "static/media/logo3.png": "/static/media/logo3.9513464f6ef6f01a849a.png",
     "static/media/logo-phone.png": "/static/media/logo-phone.9dbe0efb49db87860c2c.png",
@@ -77,10 +78,10 @@
     "static/media/empty-svg.svg": "/static/media/empty-svg.dd157dc733825c66f1318b0fd8815572.svg",
     "static/media/empty-color.svg": "/static/media/empty-color.fd8ac66cc76291846fdca0c1261279d7.svg",
     "main.ca6a75e8.css.map": "/static/css/main.ca6a75e8.css.map",
-    "main.f402b792.js.map": "/static/js/main.f402b792.js.map"
+    "main.2d757dd0.js.map": "/static/js/main.2d757dd0.js.map"
   },
   "entrypoints": [
     "static/css/main.ca6a75e8.css",
-    "static/js/main.f402b792.js"
+    "static/js/main.2d757dd0.js"
   ]
 }

@@ -29,7 +29,7 @@ import logoyt from "../../assets/img_home/logo-yt.png";
 import logozalo from "../../assets/img_home/logo-zalo.png";
 import logophone from "../../assets/img_home/logo-phone.png";
 import tree from "../../assets/img_home/tree.png";
-import logoHokkaido from "../../assets/image/logo.png";
+import logoHokkaido from "../../assets/img_home/logoHokkaido.png";
 import CountUp from "react-countup";
 import { Carousel } from "../../Components/Carousel/Carousel";
 import GrungeSVG from "@/Components/GrungeSVG/GrungeSVG";
