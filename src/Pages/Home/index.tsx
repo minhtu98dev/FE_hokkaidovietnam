@@ -224,7 +224,7 @@ export default function Home() {
                 <img
                   src={logoHokkaido}
                   alt="Logo Hokkaido"
-                  className="w-[230px] lg:w-[430px] opacity-0 h-auto animate-slide-from-bottom animate-delay-1000"
+                  className="w-[230px] lg:w-[430px]  h-auto animate-slide-from-bottom animate-delay-1000"
                 />
               </Link>
             </div>
