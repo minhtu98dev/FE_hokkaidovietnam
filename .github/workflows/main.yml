@@ -17,4 +17,5 @@ jobs:
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
           ssh-keyscan -p ${{ secrets.PORT }} -H ${{ secrets.SSH_HOST }} > ~/.ssh/known_hosts
       - name: connect and pull
-        run: ssh -p ${{ secrets.PORT }} ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd ${{ secrets.WORK_DIR }} && git pull && chmod +x ./script.sh && ./script.sh"
+        # Đã thay 'git pull' thành 'git fetch --all && git reset --hard origin/master'
+        run: ssh -p ${{ secrets.PORT }} ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd ${{ secrets.WORK_DIR }} && git fetch --all && git reset --hard origin/master && chmod +x ./script.sh && ./script.sh"
